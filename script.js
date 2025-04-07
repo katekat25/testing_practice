@@ -25,4 +25,18 @@ const calculator = {
   }
 }
 
-export { capitalize, reverseString, calculator }
+function caesarCipher(string, shiftFactor) {
+  const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  const charArray = [...string];
+  const newArray = [];
+  charArray.forEach(function(char) {
+    const isUppercase = char === char.toUpperCase();
+    if (alphabet.includes(char.toLowerCase())) {
+      let newChar = alphabet[(alphabet.indexOf(char.toLowerCase()) + shiftFactor) % 26];
+      newArray.push(isUppercase ? newChar.toUpperCase() : newChar);
+    } else newArray.push(char);
+  });
+  return newArray.join("");
+}
+
+export { capitalize, reverseString, calculator, caesarCipher }

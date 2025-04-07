@@ -1,4 +1,4 @@
-import { capitalize, reverseString, calculator } from "./script";
+import { capitalize, reverseString, calculator, caesarCipher } from "./script";
 
 test('capitalize function exists', () => {
   expect(capitalize).toBeDefined();
@@ -74,4 +74,21 @@ test('calculator divide method divides numbers correctly', () => {
   expect(calculator.divide(4, 1)).toBe(4);
   expect(calculator.divide(10, 5)).toBe(2);
   expect(calculator.divide(7, 3)).toBe(2.3333333333333335);
+})
+
+test('caesarCipher function exists', () => {
+  expect(caesarCipher).toBeDefined();
+})
+
+test('caesarCipher function shifts letters by given key', () => {
+  expect(caesarCipher("hello", 3)).toBe("khoor");
+  expect(caesarCipher("animesucks", 1)).toBe("bojnftvdlt");
+})
+
+test('caesarCipher function preserves punctuation', () => {
+  expect(caesarCipher("the moon is a harsh mistress", 13)).toBe("gur zbba vf n unefu zvfgerff");
+})
+
+test('caesarCipher function preserves capitalization', () => {
+  expect(caesarCipher("Hello, world!", 10)).toBe("Rovvy, gybvn!");
 })
