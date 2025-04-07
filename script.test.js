@@ -1,4 +1,4 @@
-import { capitalize, reverseString, calculator, caesarCipher } from "./script";
+import { capitalize, reverseString, calculator, caesarCipher, analyzeArray } from "./script";
 
 test('capitalize function exists', () => {
   expect(capitalize).toBeDefined();
@@ -91,4 +91,32 @@ test('caesarCipher function preserves punctuation', () => {
 
 test('caesarCipher function preserves capitalization', () => {
   expect(caesarCipher("Hello, world!", 10)).toBe("Rovvy, gybvn!");
+})
+
+test('analyzeArray function exists', () => {
+  expect(analyzeArray).toBeDefined();
+})
+
+test('analyzeArray returns average of array numbers', () => {
+  expect(analyzeArray([1,8,3,4,2,6]).average).toBe(4);
+  expect(analyzeArray([2,47,30,28,30,28,65,76]).average).toBe(38.25);
+  expect(analyzeArray([40,18,13,58,74,0,72,6,88]).average).toBe(41);
+})
+
+test('analyzeArray returns minimum of numbers', () => {
+  expect(analyzeArray([1,8,3,4,2,6]).min).toBe(1);
+  expect(analyzeArray([2,47,30,28,30,28,65,76]).min).toBe(2);
+  expect(analyzeArray([40,18,13,58,74,0,72,6,88]).min).toBe(0);
+})
+
+test('analyzeArray returns maximum of numbers', () => {
+  expect(analyzeArray([1,8,3,4,2,6]).max).toBe(8);
+  expect(analyzeArray([2,47,30,28,30,28,65,76]).max).toBe(76);
+  expect(analyzeArray([40,18,13,58,74,0,72,6,88]).max).toBe(88);
+})
+
+test('analyzeArray returns length of array', () => {
+  expect(analyzeArray([1,8,3,4,2,6]).length).toBe(6);
+  expect(analyzeArray([2,47,30,28,30,28,65,76]).length).toBe(8);
+  expect(analyzeArray([40,18,13,58,74,0,72,6,88]).length).toBe(9);
 })
